@@ -1,5 +1,6 @@
 # slack-hitorigoto-esa
 
+
 ## Description
 
 ここの分報を1日分まとめて[esa.io](https://esa.io/) に日報として投げるやつです.
@@ -9,37 +10,26 @@ FYI: [Slackで簡単に「日報」ならぬ「分報」をチームで実現す
 ## Usage
 
 ```bash
-$ slack-hitorigoto-esa -s SLACK_TOKEN -e ESA_TOKEN
+$ slack-hitorigoto-esa -c config.toml
 ```
 
-設定ファイルを読みこませることもできます. 設定ファイルはTOML形式で `c` オプションで設定ファイルの名前を指定します.
+設定ファイルはTOML形式で `c` オプションで設定ファイルのパスを指定します.
 
 ```toml:config.toml
-SLACK_TOKEN = "SLACK_TOKEN"
-ESA_TOKEN = "ESA_TOKEN"
-```
+[slack]
+token = "access_token"
+channel = "hitorigoto"
 
-```bash
-$ slack-hitorigoto-esa -c ./config.toml
-```
-
-設定ファイルとオプションでTOKENを同時に指定した場合はオプションで指定した方が優先されます.
-
-```toml:config.toml
-SLACK_TOKEN = "SLACK_TOKEN2"
-ESA_TOKEN = "ESA_TOKEN2"
-```
-
-```bash
-$ slack-hitorigoto-esa -c ./config.toml -e "ESA_TOKEN1"
-# SLACK_TOKEN => "SLACK_TOKEN2"
-# ESA_TOKEN => "ESA_TOKEN1"
+[esa]
+token = "access_token"
+team = "team_name"
+category = "日報"
 ```
 
 ## Install
 
 ```bash
-$ go get -d github.com/upamune/slack-hitorigoto-esa
+$ go get github.com/upamune/slack-hitorigoto-esa
 ```
 
 [Releases](https://github.com/upamune/slack-hitorigoto-esa/releases)
