@@ -57,7 +57,6 @@ func (c *Config) getSlackHitorigoto() ([]slack.SearchMessage, error) {
 	api := slack.New(c.Slack.Token)
 	today := time.Now()
 	todayStr := today.Format("2006-01-02")
-	todayStr = "2015-11-21"
 	query := "on:" + todayStr + " "
 
 	searchParam := slack.NewSearchParameters()
